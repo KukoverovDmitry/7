@@ -5,7 +5,7 @@ from tkinter import messagebox as mb
 window = Tk()
 
 def check():
-    answer = mb.askyesno(title="Вопрос", message="Вы уверены?",icon="warning")
+    answer = mb.askretrycancel(title="Вопрос", message="Вы уверены?",icon="warning")
     if answer:
         s = e.get()
         e.delete(0, END)
