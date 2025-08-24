@@ -4,8 +4,9 @@ from tkinter import messagebox as mb
 from tkinter import simpledialog as sd
 import datetime
 import time
-
+tT = 0
 def set():
+    global t
     rem = sd.askstring("Время напомнинания"
                        , "Введите время напоминания в формате ЧЧ:ММ(в 24 часовом формате )")
     if rem:
@@ -23,6 +24,21 @@ def set():
         except Exception as e:
             mb.showerror("Ошибка", f"Ошибка: {e}")
             
+def check():
+    global t
+    if t:
+        now = time.time()
+        if now >= t:
+            play_snd()
+            t = 0
+
+    window.after(10000, check)
+
+
+def play_snd():
+    pygame.mixer.init()
+    pygame.mixer.music.load("reminder.mp3")
+
 
 window = Tk()
 window.title("Reminder")

@@ -31,7 +31,7 @@ e.pack()
 b = Button(window, text="Передать", command=check)
 b.pack()
 
-m = Label(window, height=3, width=30    )
+m = Label(window,height=3, width=100    )
 m.pack()
 
 
