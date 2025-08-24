@@ -6,6 +6,12 @@ oper = ""
 first = 0
 second = 0
 
+def validte_entry(event):
+    e = entry.get()
+    txt = "".join(b for b in e if b in "0123456789.-")
+    if e != txt:
+        entry.delete(0, END)
+        entry.insert(0, txt)
 
 
 def calc():
@@ -23,7 +29,10 @@ def calc():
 
 
 def enter_nimber(number):
+    
     entry.insert(END, number)
+ 
+   
 
 
 def clear_entry():
@@ -39,6 +48,7 @@ def set_oper(operation):
     first = float(entry.get())
     oper = operation
     entry.delete(0, END)
+    
 
 
 window = Tk()
@@ -46,6 +56,14 @@ window.title("Calculator")
 
 entry = ttk.Entry  (window, width=40)
 entry.grid(row= 0, column=0, columnspan=4,sticky=EW)
+
+entry.bind("<KeyRelease>", lambda event : validte_entry(event))
+
+
+
+
+
+
 
 ttk.Button(window, text="1", command=lambda: enter_nimber(1)).grid(row=1, column=0      )
 ttk.Button(window, text="2", command=lambda: enter_nimber(2)).grid(row=1, column=1      )   
@@ -66,7 +84,7 @@ ttk.Button(window, text="-", command=lambda: set_oper("-")).grid(row=2, column=3
 ttk.Button(window, text="*", command=lambda: set_oper("*")).grid(row=3, column=3 ) 
 ttk.Button(window, text="/", command=lambda: set_oper("/")).grid(row=4, column=3 ) 
 
-window.mainloop(    )
+window.mainloop()
 
 
 

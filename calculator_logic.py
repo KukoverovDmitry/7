@@ -9,8 +9,16 @@ def multiply(a, b):
     return a * b
     
 def divide(a, b):
-    if b != 0:
-        return a / b
+    if b == 0:
+        raise ZeroDivisionError
     else:
-        return "Error"
-    
+        return a/b
+
+def square(x):
+    if isinstance (x, (int, float)):
+        return x**2
+       
+    else:
+         raise  ValueError                
+
+
