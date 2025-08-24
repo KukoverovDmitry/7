@@ -10,6 +10,10 @@ def set():
     global t
     rem = sd.askstring("Время напомнинания"
                        , "Введите время напоминания в формате ЧЧ:ММ(в 24 часовом формате )",)
+
+    label.config(text=(f"Напоминание установлено на: {rem}"))
+
+
     if rem:
         try:
             hour = int(rem.split(":")[0])
