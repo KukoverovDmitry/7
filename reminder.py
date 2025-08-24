@@ -26,6 +26,8 @@ def set():
             t = dt.timestamp()
             print(t)
             
+            
+            
         except Exception as e:
             mb.showerror("Ошибка", f"Ошибка: {e}")
             
